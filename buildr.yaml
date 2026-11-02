@@ -1,0 +1,27 @@
+project:
+  name: buildr-test-nextjs
+  description: "Test Next.js app for Buildr deployment system"
+  version: "1.0.0"
+
+stack:
+  type: nextjs
+  framework_version: "16.0"
+  runtime: nodejs-22
+
+deployment:
+  method: coolify
+  repository: git@github.com:rosiinante-alt/buildr-test-nextjs.git
+  branch: main
+  domain: buildr-test.001746.xyz
+  auto_deploy: true
+
+runtime:
+  port: 3000
+  build_command: "npm run build"
+  start_command: "npm start"
+  healthcheck: "/"
+
+environment:
+  production:
+    NODE_ENV: production
+    NEXT_TELEMETRY_DISABLED: "1"
